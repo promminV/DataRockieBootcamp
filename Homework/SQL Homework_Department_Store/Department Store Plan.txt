@@ -1,0 +1,8 @@
+Department Store
+-> electronics
+-> supermarket
+-> kids & toys
+-> shoes bags accessories
+-> home decoration
+-> cafe bakery
+
