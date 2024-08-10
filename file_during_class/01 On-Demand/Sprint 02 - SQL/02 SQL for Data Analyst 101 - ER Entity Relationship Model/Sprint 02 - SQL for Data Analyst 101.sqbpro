@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="D:/Data Scientist Course/Data Rockie Bootcamp 7th/Outcome Files/Ondemand Sprint 02 - SQL/02 ER - Entity Relationship Model/chinook.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="3862"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,6:mainalbums"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="customers" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="83"/><column index="2" value="71"/><column index="3" value="83"/><column index="4" value="294"/><column index="5" value="264"/><column index="6" value="132"/><column index="7" value="44"/><column index="8" value="96"/><column index="9" value="80"/><column index="10" value="128"/><column index="11" value="122"/><column index="12" value="183"/><column index="13" value="98"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">--Lesson: Select Columns
+/*SELECT 
+	firstname, 
+	lastname,
+	firstname || ' ' || LastName as fullname,
+	lower(firstname) || '@company.com' as email
+FROM customers
+LIMIT	10;*/
+
+-- Lesson: Create New Columns
+/*select 
+	name, 
+	round(milliseconds/60000.0,2) as minute, 
+	round(bytes/(1024*1024.0),2) as mb
+from tracks;*/
+
+-- Lesson: Case When
+/*select 
+	company,
+	case
+		when company is not null then 'Corporate'
+		else 'End Customer'
+	end as segment
+from customers;*/
+
+-- Lesson: Working with DateTime in SQLite
+/*
+select 
+	invoicedate,
+	cast(strftime('%Y', invoicedate) as int) as year,
+	cast(strftime('%m',invoicedate) as int) as month,
+	cast(strftime('%d',invoicedate) as int) as day,
+	cast(strftime('%Y-%m', invoicedate) as int) as monthid
+from invoices
+where year = 2010 and month = 2; */
+
+-- Lesson: Select Data from Multiple Tables
+/*
+select * from artists
+join albums
+on artists.ArtistId = albums.ArtistId
+where artists.ArtistId = 50
+; */
+
+-- Lesson: Inner vs. Left JOIN
+-- Inner Join = Matching data of right table (value of foreign key) to the left table (primary key), ignore the data which can't be matched.
+-- Left Join = Inner Join + Others (foreign key in the right table and the primary key in left table can't match -&gt; value of these key be shown as &quot;Null&quot;)
+-- Join = Inner Join (Default of SQL)
+
+/*
+SELECT
+	artists.ArtistId,
+	artists.Name,
+	albums.Title,
+	tracks.name,
+	tracks.Composer
+from artists
+join albums
+on artists.ArtistId = albums.AlbumId
+join tracks
+on albums.AlbumId = tracks.AlbumId
+
+where artists.name = 'Aerosmith'; */
+
+-- Lesson: Random Sampling
+/*
+Select name, random() from tracks
+order by random() desc
+limit 10
+;
+*/
+Select name from tracks
+order by random() desc
+limit 10
+;</sql><current_tab id="0"/></tab_sql></sqlb_project>
