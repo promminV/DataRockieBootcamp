@@ -1,0 +1,55 @@
+---
+title: "Homework Data Viz"
+author: "Prommin Vutivivatchai"
+date: "2023-05-29"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+# Hello World
+
+This is markdown language. Today we learn a few topics in R.
+
+- databases
+- working with date
+- ggplot2
+- rmarkdown
+
+## h2
+
+### h3
+
+#### h4
+
+## Homework
+
+Explore dataframe 'diamonds' and create 5 visualizations.
+
+### Chart 1 - relationship between carat and price
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+head(diamonds)
+```
+
+Create my first chart !
+```{r}
+ggplot(diamonds %>% sample_n(500), aes(carat, price)) +
+  geom_point() +
+  geom_smooth() +
+  theme_minimal()
+```
+
+Another Charts!
+```{r}
+ggplot(diamonds %>% sample_n(5000), aes(cut, fill = color)) +
+  geom_bar(position = "fill") +
+  theme_minimal()
+```
+
+Comment what did we find in this chart ?
+
+[google](https://www.google.com)
+
+Add an image to this report.
+![new image](linkhtml)

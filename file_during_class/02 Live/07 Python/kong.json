@@ -1,0 +1,6 @@
+{
+	"name": "kong",
+	"age": 23,
+	"movie_lover": true,
+	"movies": ["batman", "superman"]
+}
